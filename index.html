@@ -2,10 +2,11 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="style.css">
 <title>Key Characteristics of Timelines</title>
 </head>
 
-<body>
+<body id="container" style="color: #bb00ff; background-color: black;">
 <p>
   <h1 style="color: blue; font-family: 'Roboto' , sans-serif;">
   Key Characteristics of Timelines
@@ -28,22 +29,36 @@
     <p>
       In summary, timelines are versatile tools used in various fields and contexts to organize, visualize, and understand the sequence of events over time. Whether documenting historical developments, managing projects, reflecting on personal experiences, crafting fictional narratives, or advancing scientific knowledge, timelines play a crucial role in how we perceive and make sense of the passage of time.
     </p>
-    
-    <a href="https://icebearisawbear.github.io/TemporalNavigationResearch6/">
-      <button>
+
+    <a href="https://icebearisawbear.github.io/TemporalNavigationResearch6/" class="button">
         click to view the next page
-      </button>
     </a>
-    <a href="https://icebearisawbear.github.io/TemporalNavigationResearch4/">
-      <button>
+    <a href="https://icebearisawbear.github.io/TemporalNavigationResearch4/" class="button">
         click to view the previous page
-      </button>
     </a>
-    <a href="https://icebearisawbear.github.io/TemporalNavigationResearch/">
-      <button>
+    <a href="https://icebearisawbear.github.io/TemporalNavigationResearch/" class="button">
         click to go back to the start
-      </button>
     </a>
+    
+    <script>
+        (function() {
+            document.addEventListener("mousemove", parallax);
+            const elem = document.querySelector("#container");
+
+            function parallax(e) {
+                let _w = window.innerWidth/2;
+                let _h = window.innerHeight/2;
+                let _mouseX = e.clientX;
+                let _mouseY = e.clientY;
+                let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${50 - (_mouseY - _h) * 0.01}%`;
+                let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${50 - (_mouseY - _h) * 0.02}%`;
+                let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${50 - (_mouseY - _h) * 0.06}%`;
+                let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+                elem.style.backgroundPosition = x;
+            }
+        })();
+    </script>
+    
 </body>
 
 </html>
